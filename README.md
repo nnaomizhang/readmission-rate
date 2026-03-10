@@ -32,7 +32,6 @@ readmission/
 │   └── IDS_mapping.csv
 ├── skills/                       # Reusable SKILL.md files for future Claude sessions
 │   ├── leakage-audit.md
-│   ├── data-quality-visuals.md
 │   └── ablation-reproducibility.md
 ├── readmission.ipynb             # Main notebook — full pipeline
 ├── requirements.txt
