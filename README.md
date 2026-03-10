@@ -15,13 +15,19 @@ UCI Diabetes 130-US Hospitals (1999–2008) — 101,766 encounters, 50 features.
 ## How to Run
 
 ```bash
-git clone 
+git clone <repo-url>
 cd readmission
 pip install -r requirements.txt
 jupyter lab readmission.ipynb
 ```
 
 Run all cells top to bottom. Fully reproducible with `RANDOM_STATE=42`.
+
+## Skills
+
+The `/skills` folder contains two reusable SKILL.md files encoding the methodology decisions
+made in this project. To use in a new Claude session, upload the relevant file and say:
+*"Follow the instructions in this SKILL.md for this project."*
 
 ## Repository Structure
 
@@ -38,8 +44,15 @@ readmission/
 └── README.md
 ```
 
-## Pipeline
-Five steps: problem framing → EDA → data preparation → modelling → threshold optimisation and final evaluation.
+## Pipeline Overview
+| Step | Description |
+|---|---|
+| 1 | Problem framing — leakage investigation, population filter, class weights, metric definitions |
+| 2 | EDA — missingness, class imbalance, feature distributions, NZV analysis, subgroup analysis, correlation |
+| 3 | Data preparation — feature definitions, grouped split, CCS diagnosis grouping, imputation, encoding, log transform, scaling, OHE, validation checks |
+| 4 | Modelling — Logistic Regression, XGBoost, MLP; comparison table, McNemar significance tests, ROC curves, learning curve |
+| 5 | Threshold optimisation & Final evaluation — calibration, PR curve, threshold sweep, error analysis, subgroup failure analysis|
+| 6 | Final Solution|
 
 ## Key Decisions
 - **Grouped split**: 80/10/10 by `patient_nbr` — no patient appears across splits
